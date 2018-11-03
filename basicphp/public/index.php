@@ -1,22 +1,15 @@
 <?php 
 if(isset($_GET['page'])) {
 	$page = htmlspecialchars($_GET['page']);
-	echo $page;
+	$file = "../app/view/" . $page . ".php";
+	if(file_exists($file)) {
+		require $file;
+	} else {
+		require "../app/view/404.php";
+	}
 } else {
-echo <<<EOD
-<!DOCTYPE html>
- <html lang="en">
- <head>
- 	<meta charset="UTF-8">
- 	<title>Home</title>
- </head>
- <body>
- 	<h1>Hello World</h1>
- </body>
- </html>
-EOD;
+	require "../app/view/index.php";
 }
-
  ?>
 
  
