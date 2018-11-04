@@ -1,20 +1,20 @@
 <?php 
 
-function HomeController() {
+function _HomeController() {
 	$data = [
 		'title'	=> 'Myanmar Links'
 	];
 	_load_view("index", $data);
 }
 
-function BlogController() {
+function _BlogController() {
 	$data = [
 		'title'	=> 'Blog Area'
 	];
 	_load_view("index", $data);
 }
 
-function TestController() {
+function _TestController() {
 	$data = [
 		'title'	=> 'Test Area'
 	];
