@@ -1,14 +1,22 @@
 <?php 
+define("DD", "../");
+require DD . "wpa30/functions.php";
+require DD . "app/controllers/controllers.php";
+
+
 if(isset($_GET['page'])) {
 	$page = htmlspecialchars($_GET['page']);
-	$file = "../app/view/" . $page . ".php";
-	if(file_exists($file)) {
-		require $file;
+	
+	$controller  = $page . "controller";
+	if(function_exists($controller)) {
+		$controller();	
 	} else {
-		require "../app/view/404.php";
+		_load_view("404");
 	}
+ 
+	
 } else {
-	require "../app/view/index.php";
+	HomeController();
 }
  ?>
 
