@@ -2,6 +2,7 @@
 
 define("DD", "../");
 require DD . "wpa30/functions.php";
+require DD . "wpa30/database.php";
 require DD . "app/controllers/controllers.php";
 
 $request_uri = explode("/", $_SERVER['REQUEST_URI']);
