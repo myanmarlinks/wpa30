@@ -7,7 +7,7 @@ require DD . "/wpa30/database.php";
 require DD . "/app/controllers/controllers.php";
 
 $test = _config_get("app.cache.driver.one");
-_dump($test, true);
+$servername = _config_get("database");
 
 $request_uri = explode("/", $_SERVER['REQUEST_URI']);
 $script_name = explode("/", $_SERVER['SCRIPT_NAME']);
