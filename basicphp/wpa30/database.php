@@ -7,9 +7,8 @@ function _db_get_all($table_name) {
 	$dbname = _config_get("database.dbname");
 
 
-	$conn = mysqli_connect($servername, $username, $password);
+	$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// Check connection
 	if (!$conn) {
 		die("Connection failed: " . mysqli_connect_error());
 	}

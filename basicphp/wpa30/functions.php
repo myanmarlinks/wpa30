@@ -18,17 +18,9 @@ function _config_get($value) {
 	$e_value = explode(".", $value);
 	$file = DD . '/app/config/' . $e_value[0] . ".php";
 	if(file_exists($file)) {
-		array_shift($e_value);
 		$data = require $file;
-			
-		_dump($value, true);
-		if(array_key_exists($e_value[1], $data)) {
-
-			return $data[$e_value[1]];	
-		} else {
-			trigger_error("Config Key does not exist", E_USER_ERROR);
-		}
-		
+		array_shift($e_value);
+		return $data[$e_value[0]];
 
 	} else {
 		trigger_error("Config file not found", E_USER_ERROR);
@@ -41,6 +33,18 @@ function _dump($value, $die = false) {
 	if($die == true) {
 		die();
 	}
+}
+
+function arrayResolver($request_array, $default_array) {
+	$key = explode('.', $request_array[0]);
+	foreach ($key as $k => $value) {
+		if(array_key_exists($value, $default_array)) {
+			$default_array = $default_array[$value];
+		} else {
+			trigger_error('Array key doesn\'s exist.', E_USER_ERROR);
+		}	
+	}
+	return $default_array;    
 }
 
 
