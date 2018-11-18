@@ -10,7 +10,7 @@ function _load_view($view, $data = null) {
 		require $file;
 		ob_end_flush();
 	} else {
-		trigger_error("View File ထည့္ရမယ္ဆိုတာ မသိဘူးလား ခ်ီးထုတ္", E_USER_ERROR);
+		trigger_error(_c("app.view_file_not_found"), E_USER_ERROR);
 	}
 }
 
@@ -23,7 +23,7 @@ function _config_get($value) {
 		return $data[$e_value[0]];
 
 	} else {
-		trigger_error("Config file not found", E_USER_ERROR);
+		trigger_error(_c("app.config_file_not_found"), E_USER_ERROR);
 	}
 
 }
@@ -47,8 +47,18 @@ function arrayResolver($request_array, $default_array) {
 	return $default_array;    
 }
 
+function _c($lang_key) {
+	$e_lang_key = explode(".", $lang_key);
+	$default_lang = _config_get("app.language");
+	$file = DD . "/app/lang/" . $default_lang . "/" . $e_lang_key[0] . ".php";
+	if(file_exists($file)) {
+		$lang = require $file;
+		return $lang[$e_lang_key[1]];
+	} else {
+		trigger_error("Language file not found", E_USER_ERROR);
+	}
 
-
+}
 
 
 

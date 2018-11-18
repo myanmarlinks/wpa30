@@ -1,6 +1,8 @@
 <?php 
 
 function _HomeController() {
+	_config_get("eee.eee");
+	die();
 	$students = _db_get_where("students");
 	die();
 	$data = [
