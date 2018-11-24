@@ -1,0 +1,11 @@
+{
+    "require": {
+        "monolog/monolog": "^1.24",
+        "phpunit/phpunit": "^7.4"
+    },
+    "autoload": {
+    	"classmap": [
+    		"config"
+    	]
+    }
+}
