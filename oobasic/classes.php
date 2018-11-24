@@ -1,10 +1,11 @@
 <?php 
-class Animal {
+abstract class Animal {
 	public $name;
 	public function eat() {
 		echo "Eat! <br>";
 	}
 }
+
 trait Human {
 	public function dance() {
 		echo "Dance! <br>";
