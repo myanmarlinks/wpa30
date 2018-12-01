@@ -1,58 +1,25 @@
 <?php 
-echo StaticChain::getInstance()->sum(45)->sum(34)->divide(2)->get();
-echo "<br>";
 
-echo StaticChain::getInstance()->sum(6700)->divide(2)->get();
-echo "<br>";
-class StaticChain {
-	private static $_instance;
-	public $result = 0;
+/* Anonymous Functions */
 
-	public function __construct() {
-		echo "Static Chain Construct! <br>";
-	}
-	public function __destruct() {
-		echo "Static Chain Destory! <br>";
-	}
+$foo = function($name) {
+	echo "Hello World $name <br>";
+};
 
-	public static function getInstance() {
-		if(!self::$_instance instanceof StaticChain) {
-			self::$_instance = new StaticChain();
+class Test {
+	function testTest(string... $value) {
+		foreach($value as $v) {
+			echo $v . "<br>";
 		}
-		return self::$_instance;
-	}
-
-	public function sum($num) {
-		$this->result += $num;
-		return $this;
-	}
-	public function substract($num) {
-		$this->result -= $num;
-		return $this;
-	}
-	public function multiply($num) {
-		$this->result *= $num;
-		return $this;
-	}
-	public function divide($num) {
-		$this->result /= $num;
-		return $this;
-	}
-
-	public function get() {
-		return $this->result;
 	}
 }
 
+$test = new Test;
+$test->testTest("Aung Aung", "Maunng Maung");
+$test->testTest("Ba Ba");
+
+$foo("Mg Mg");
+echo gettype($foo);
 
 
-
-
-
-
-
-
-
-
-
-
+?>
