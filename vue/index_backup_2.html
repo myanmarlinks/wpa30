@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>VUEJS</title>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+	<div id="app" class="container">
+		<div class="row">
+			<div class="col-12">
+				<h1>{{ fullName }}</h1>
+				<input type="number" v-model.number="count" />
+			</div>
+		</div>
+		<br>
+		<hr>
+		<pre>
+			{{ $data }}
+		</pre>
+	</div>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="bower_components/vue/dist/vue.min.js"></script>
+	<script src="script2.js"></script>
+
+</body>
+</html>			  
