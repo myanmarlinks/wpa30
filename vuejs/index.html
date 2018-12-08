@@ -9,11 +9,10 @@
 	<div id="app" class="container">
 		<div class="row">
 			<div class="col-12">
-				<ol>
-					<li v-for="todo in todos">
-						{{ todo.text }}
-					</li>
-				</ol>
+				<p>{{ message }}</p>
+
+				<p>{{ message }}</p>
+				<button v-on:click="reverseMessage">Reverse Message</button>
 			</div>
 		</div>
 	</div>
@@ -22,11 +21,12 @@
 		var app = new Vue({
 			el: '#app',
 			data: {
-				todos: [
-				{ text: 'Learn JavaScript' },
-				{ text: 'Learn Vue' },
-				{ text: 'Build something awesome' }
-				]
+				message: 'Hello Vue.js!'
+			},
+			methods: {
+				reverseMessage: function () {
+					this.message = this.message.split('').reverse().join('')
+				}
 			}
 		})
 	</script>
