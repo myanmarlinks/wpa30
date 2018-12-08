@@ -11,11 +11,17 @@ var data = {
 	]
 }
 var appOne = new Vue({
-	el: "#app1",
+	el: "#app",
 	data: data,
 	methods: {
 		upVote: function() {
 			this.vote++;
+		},
+		testCall: function() {
+			console.log("Howdy!");
+		},
+		doSomething: function() {
+			console.log("do something");
 		}
 	}
 })
