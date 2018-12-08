@@ -14,6 +14,10 @@
 				<h3 v-else="age > 20">Hi {{ age  }}</h3>
 				<h4 v-show="bar">How do you do?</h4>
 				<input type="text" v-model="message" />
+
+				<button class="btn btn-success" @click="upVote()">
+					Vote! {{ vote }}
+				</button>
 				<table class="table">
 					<thead>
 						<tr>
@@ -41,7 +45,7 @@
 
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="bower_components/vue/dist/vue.js"></script>
+	<script src="bower_components/vue/dist/vue.min.js"></script>
 	<script src="script.js"></script>
 
 </body>

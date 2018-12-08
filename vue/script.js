@@ -2,6 +2,7 @@ var data = {
 	message: "Hello World!",
 	foo: "How are you?",
 	age: 32,
+	vote: 0,
 	bar: true,
 	students: [
 		{ id: 1, name: "Aung Aung", address: "Hledan"},
@@ -11,5 +12,10 @@ var data = {
 }
 var appOne = new Vue({
 	el: "#app1",
-	data: data
+	data: data,
+	methods: {
+		upVote: function() {
+			this.vote++;
+		}
+	}
 })
