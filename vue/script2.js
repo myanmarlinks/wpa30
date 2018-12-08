@@ -6,9 +6,15 @@ var app = new Vue({
 		count: 45
 	},
 	computed: {
-	fullName: function() {
+		fullName: function() {
 			return this.firstName + " " + this.lastName;
 		}
+	},
+	mounted: function() {
+		console.log("Mounted!");
+	},	
+	created: function() {
+		console.log("Created!");
 	},
 	methods: {
 		
