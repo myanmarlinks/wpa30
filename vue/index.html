@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>VUEJS</title>
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div id="app" class="container">
@@ -12,20 +13,20 @@
 				<form>
 					<div class="form-group">
 						<label for="id">ID</label>
-						<input name="id" type="text" class="form-control" />
+						<input id="student_id" v-model="id" name="id" type="text" class="form-control" />
 					</div>
 					<div class="form-group">
 						<label for="name">Name</label>
-						<input name="name" type="text" class="form-control" />
+						<input name="name" v-model="name" type="text" class="form-control" />
 					</div>
 					<div class="form-group">
 						<label for="address">Address</label>
-						<textarea name="address" class="form-control"></textarea>
+						<textarea @keyup.enter="addStudent()" v-model="address" name="address" class="form-control"></textarea>
 					</div>
-					<button type="submit" class="btn btn-primary">Submit</button>
+					<button @click.prevent="addStudent()" type="submit" class="btn btn-primary">Submit</button>
 				</form>
 			</div>
-			<div class="col-8">
+			<div id="tables" class="col-8">
 				<table class="table">
 					<thead>
 						<tr>
@@ -35,10 +36,11 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>Aung Aung</td>
-							<td>Hledan</td>
+						<tr v-for="student in students">
+							<td>{{ student.id }}</td>
+							<td>{{ student.name }}</td>
+							<td>{{ student.address }}</td>
+							<td><button class="btn btn-danger">DEL</button></td>
 						</tr>
 					</tbody>
 				</table>
@@ -53,7 +55,7 @@
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="bower_components/vue/dist/vue.min.js"></script>
-	<script src="script2.js"></script>
+	<script src="script3.js"></script>
 
 </body>
 </html>			  
