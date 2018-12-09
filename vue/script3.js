@@ -9,12 +9,16 @@ var app = new Vue({
 	methods: {
 		addStudent: function() {
 			this.students.push({
-				id: this.id, 
+				id: this.id, 	
 				name: this.name, 
 				address: this.address
 			})
+			
 			this.setDefault();
 			this.setFocus();
+		},
+		removeStudent: function(index) {
+			this.students.splice(index, 1);
 		},
 		setDefault: function() {
 			this.id = "";
@@ -22,8 +26,7 @@ var app = new Vue({
 			this.address = "";
  		},
  		setFocus: function() {
- 	
- 			$("#student_id").select();
+ 			$("#student_id").focus();
  		}
 	}
 

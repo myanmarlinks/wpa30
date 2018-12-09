@@ -13,7 +13,7 @@
 				<form>
 					<div class="form-group">
 						<label for="id">ID</label>
-						<input id="student_id" v-model="id" name="id" type="text" class="form-control" />
+						<input id="student_id" v-model="id" name="id" type="number" class="form-control" />
 					</div>
 					<div class="form-group">
 						<label for="name">Name</label>
@@ -36,11 +36,11 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr v-for="student in students">
+						<tr v-for="student, index in students">
 							<td>{{ student.id }}</td>
 							<td>{{ student.name }}</td>
 							<td>{{ student.address }}</td>
-							<td><button class="btn btn-danger">DEL</button></td>
+							<td><button @click="removeStudent(index)" class="btn btn-danger">DEL</button></td>
 						</tr>
 					</tbody>
 				</table>
