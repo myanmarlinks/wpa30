@@ -3,14 +3,12 @@ define("DD", realpath("../"));
 
 /*
 Useful Links 
-
-https://youtu.be/VGSerlMoIrY 
+PSR-4 Autoload - https://youtu.be/VGSerlMoIrY 
 */
 
 require DD . "/vendor/autoload.php";
 
-use App\Controller\TestController;
-use App\Model\TestModel;
+use App\Controller\HomeController;
 
 $request_uri = explode("/", $_SERVER['REQUEST_URI']);
 $script_name = explode("/", $_SERVER['SCRIPT_NAME']);
@@ -22,7 +20,7 @@ if(empty($uri)) {
 	$page = $uri[0];
 }
 
-call_user_func_array([new TestModel(), 'index'], []);
+call_user_func_array([new HomeController(), 'index'], []);
 
 $routes = [
 	'home'	=> 'HomeController@index',
