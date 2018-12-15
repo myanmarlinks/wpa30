@@ -1,5 +1,5 @@
 <?php 
-namespace App\Controlller;
+namespace App\Controller;
 
 	class PageController {
 		public function index() {

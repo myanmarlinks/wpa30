@@ -1,5 +1,5 @@
 <?php 
-namespace App\Controlller;
+namespace App\Controller;
 
 class BlogController {
 	public function index() {
