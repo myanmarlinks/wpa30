@@ -5,7 +5,11 @@ function dump($data, $die = false) {
 	if($die == true) {
 		die();
 	}
+}
 
+function dd($data) {
+	var_dump($data);
+	die();
 }
 
  ?>
